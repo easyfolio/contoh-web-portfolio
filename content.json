@@ -1,0 +1,108 @@
+{
+  "profile": {
+    "name": "Ananta Abdulla",
+    "first_name": "Ananta",
+    "last_name": "Abdulla",
+    "logo_text": "Ananta.Dev",
+    "title": "A Certified Data Analyst",
+    "bio": "I'm a Data Scientist who loves extracting insights from complex data to build impactful AI solutions. With experience in diverse industries, I'm committed to transforming data into actionable decisions. I thrive on continuous learning and applying innovative methods to deliver effective solutions.",
+    "profile_picture": "assets/img/photo-profile.jpeg"
+  },
+  "about": {
+    "about_image": "assets/img/photo-about.jpg",
+    "description_p1": "As a versatile data professional, I excel at cleaning, analyzing, and visualizing data to support strategic decision-making. My background in statistics and programming allows me to discover hidden patterns within large datasets.",
+    "description_p2": "Beyond analysis, I specialize in developing Machine Learning models from concept to production. My passion for continuous learning keeps me updated with the latest trends, ensuring cutting-edge and efficient solutions."
+  },
+  "experience": [
+    {
+      "position": "Data Analyst Intern",
+      "company": "Digital Analytics Firm",
+      "years": "SEP 2022 - Present",
+      "description": "Engaged in real-world data projects, developed analytical dashboards, and assisted in data-driven decision-making processes."
+    },
+    {
+      "position": "Data Analyst Virtual Intern",
+      "company": "Global Data Solutions",
+      "years": "NOV 2022 - DEC 2023",
+      "description": "Contributed to data cleaning scripts, generated insightful reports, and supported senior analysts in various data initiatives."
+    }
+  ],
+  "education": [
+    {
+      "degree": "Integrated MCA",
+      "institution": "University of XYZ, India",
+      "years": "2017 - 2022",
+      "description": "Graduated with a focus on Data Science and Business Analytics. Thesis on Predictive Modeling for Customer Behavior."
+    },
+    {
+      "degree": "Pre-University College",
+      "institution": "ABC College",
+      "years": "2015 - 2017",
+      "description": "Completed pre-university education with emphasis on Computer Science and Mathematics."
+    }
+  ],
+  "skills": [
+    { "name": "Python", "level": 90 },
+    { "name": "SQL", "level": 85 },
+    { "name": "Machine Learning", "level": 80 },
+    { "name": "Data Analysis", "level": 92 },
+    { "name": "Data Visualization", "level": 88 },
+    { "name": "R Programming", "level": 75 },
+    { "name": "Big Data", "level": 70 },
+    { "name": "Cloud Platforms", "level": 65 }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Optimization of Fuel Pump Maintenance",
+      "description": "Led data-driven optimization of fuel pump maintenance schedules, cutting costs by 20% and increasing efficiency. Tools: Python, Power BI, Advanced Excel.",
+      "image": "assets/img/project-telco-churn.jpg",
+      "link": "https://github.com/ananta/fuel-pump-optimization"
+    },
+    {
+      "id": 2,
+      "title": "Sentiment Analysis of Social Media",
+      "description": "Built a sentiment analysis pipeline to process large volumes of social media data, providing real-time insights into public opinion. (Python, NLTK, TensorFlow)",
+      "image": "assets/img/project-sentiment.jpg",
+      "link": "https://github.com/ananta/social-sentiment-analysis"
+    },
+    {
+      "id": 3,
+      "title": "Sales Analysis Dashboard",
+      "description": "Designed interactive dashboard for retail sales forecasting, enabling better inventory management and sales strategy. Tools: Power BI, Tableau.",
+      "image": "assets/img/project-retail-dashboard.jpg",
+      "link": "https://github.com/ananta/sales-dashboard-analysis"
+    },
+    {
+      "id": 4,
+      "title": "Road Accident Analysis Project",
+      "description": "Analyzed road accident data to identify key factors and propose solutions for prevention. Tools: Python, Power BI.",
+      "image": "assets/img/project-image-classification.jpg",
+      "link": "https://github.com/ananta/road-accident-analysis"
+    }
+  ],
+  "contact": {
+    "email": "ananta.abdulla@example.com",
+    "phone": "+62 821 5678 1234",
+    "location": "Malang, East Java, Indonesia"
+  },
+  "social_links": [
+    { "platform": "LinkedIn", "url": "https://linkedin.com/in/anantaabdulla", "icon": "fab fa-linkedin" },
+    { "platform": "Twitter", "url": "https://twitter.com/anantaabdulla", "icon": "fab fa-twitter-square" },
+    { "platform": "Instagram", "url": "https://instagram.com/ananta-abdulla", "icon": "fab fa-instagram-square" }
+  ],
+  "about_details_sections": [
+    {
+      "title": "Interests",
+      "items": ["Data Science", "Machine Learning", "Deep Learning", "Web Development", "Photography"]
+    },
+    {
+      "title": "Languages",
+      "items": ["English", "Bahasa Indonesia", "Hindi"]
+    },
+    {
+      "title": "Hobbies",
+      "items": ["Reading", "Traveling", "Gaming"]
+    }
+  ]
+}

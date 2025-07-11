@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ananta Abdulla - Data Scientist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="logo" id="logo-text"></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="theme-toggle-container">
+                    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content-wrapper">
+                <div class="hero-image-col">
+                    <img src="assets/img/photo-profile.jpeg" alt="Profile Picture of Ananta Abdulla" id="profile-pic">
+                </div>
+                <div class="hero-text-col">
+                    <p class="greeting">Hi, I'm</p>
+                    <h1 id="hero-name"></h1>
+                    <p class="professional-title" id="hero-title"></p>
+                    <div class="hero-social-links" id="hero-social-links"></div>
+                    </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section section-padding">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid-wrapper">
+                <div class="about-image-col">
+                    <img src="assets/img/photo-about.jpg" alt="About Ananta Abdulla" id="about-image-src">
+                </div>
+                <div class="about-text-col">
+                    <p id="about-description-paragraph1"></p>
+                    <p id="about-description-paragraph2"></p>
+                    <div class="about-details-blocks-wrapper" id="about-details-blocks">
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience-education-section section-padding">
+            <h2 class="section-title">Experience & Education</h2>
+            <div class="experience-education-tabs-wrapper">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" data-tab="experience">Experience</button>
+                    <button class="tab-btn" data-tab="education">Education</button>
+                </div>
+                <div class="tabs-content">
+                    <div id="experience-pane" class="tab-pane active">
+                        </div>
+                    <div id="education-pane" class="tab-pane">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section section-padding">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid" id="skills-grid"></div>
+        </section>
+
+        <section id="projects" class="projects-section section-padding">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid" id="projects-grid"></div>
+        </section>
+
+        <section id="contact" class="contact-section section-padding">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-grid">
+                <div class="contact-detail-box">
+                    <i class="fas fa-envelope"></i>
+                    <p class="contact-label">Email Address</p>
+                    <p class="contact-value" id="contact-email"></p>
+                </div>
+                <div class="contact-detail-box">
+                    <i class="fas fa-phone"></i>
+                    <p class="contact-label">Phone Number</p>
+                    <p class="contact-value" id="contact-phone"></p>
+                </div>
+                <div class="contact-detail-box">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p class="contact-label">Location</p>
+                    <p class="contact-value" id="contact-location"></p>
+                </div>
+                <div class="contact-detail-box social-box">
+                    <i class="fas fa-share-alt"></i>
+                    <p class="contact-label">Connect With Me</p>
+                    <div class="social-links-contact" id="social-links-contact"></div>
+                </div>
+            </div>
+            <div class="resume-cta">
+                <a href="#" class="btn btn-primary">Download Resume</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; <span id="current-year"></span> <span id="footer-name"></span>. All Rights Reserved.</p>
+        <div class="footer-social-links" id="footer-social-links"></div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

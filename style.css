@@ -1,0 +1,909 @@
+/* --- Global Styles & Variables (Default: Dark Mode as per reference) --- */
+:root {
+    /* Dark Theme Colors (Deekshith K Gowda Inspired) */
+    --primary-bg: #212121; /* Dark Gray */
+    --secondary-bg: #2c2c2c; /* Slightly lighter dark gray for cards/blocks */
+    --text-color: #e0e0e0; /* Light Gray */
+    --heading-color: #f8f9fa; /* White for headings */
+    --accent-color: #007bff; /* Bright Blue - Main Accent */
+    --accent-dark: #0056b3; /* Darker Blue */
+    --border-color: #495057; /* Darker border */
+    --shadow-color: rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    --progress-bar-bg: #495057; /* Darker for progress bar track */
+    --progress-color-fill: var(--accent-color); /* Fill color for progress bar */
+
+    /* Typography */
+    --font-main: 'Montserrat', sans-serif;
+
+    /* Spacing & Radius */
+    --spacing-xl: 120px;
+    --spacing-lg: 80px;
+    --spacing-md: 40px;
+    --spacing-sm: 20px;
+    --spacing-xs: 10px; /* Extra small spacing */
+    --border-radius-card: 10px; /* Slightly rounded corners for cards */
+    --border-radius-pill: 50px; /* For buttons and pills */
+
+    /* Transitions */
+    --transition-fast: 0.2s ease-out;
+    --transition-normal: 0.4s ease-in-out;
+    --transition-slow: 0.6s ease-in-out;
+}
+
+/* --- Light Mode Variables (Overwrites for Light Theme) --- */
+body.theme-light { /* Apply this class to body for light mode */
+    --primary-bg: #f8f9fa; /* Very Light Gray */
+    --secondary-bg: #ffffff; /* Pure White for cards/blocks */
+    --text-color: #343a40; /* Dark Gray */
+    --heading-color: #212529; /* Even darker for headings */
+    --accent-color: #007bff; /* Bright Blue */
+    --accent-dark: #0056b3; /* Darker Blue */
+    --border-color: #dee2e6; /* Light gray border */
+    --shadow-color: rgba(0, 0, 0, 0.08); /* Soft shadow */
+    --progress-bar-bg: #e9ecef; /* Light gray for progress bar track */
+    --progress-color-fill: var(--accent-color);
+}
+
+/* --- Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--primary-bg);
+    overflow-x: hidden;
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-color);
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+a:hover {
+    color: var(--accent-dark);
+    transform: translateY(-2px);
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- Utility Classes --- */
+.section-padding {
+    padding: var(--spacing-lg) var(--spacing-md);
+    position: relative;
+    z-index: 1;
+}
+
+.section-title {
+    font-family: var(--font-main);
+    text-align: center;
+    font-size: clamp(2.5em, 6vw, 3.5em);
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    color: var(--heading-color);
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.subsection-title {
+    font-family: var(--font-main);
+    font-size: clamp(1.4em, 3vw, 1.8em);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--heading-color);
+    text-transform: uppercase;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: var(--border-radius-pill); /* Pill shape for buttons */
+    font-weight: 500;
+    font-size: 0.95em;
+    text-align: center;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    box-shadow: 0 3px 8px var(--shadow-color);
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: 1px solid var(--accent-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-dark);
+    border-color: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px var(--shadow-color);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--text-color); /* Matches text color */
+}
+
+.btn-secondary:hover {
+    background-color: var(--text-color);
+    color: var(--primary-bg); /* Changes to background color on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px var(--shadow-color);
+}
+
+/* --- Header & Navbar --- */
+.header {
+    background-color: var(--primary-bg);
+    padding: 15px 0;
+    box-shadow: 0 1px 5px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+.navbar .logo {
+    font-family: var(--font-main);
+    font-size: clamp(1.6em, 3.5vw, 2.2em);
+    font-weight: 700;
+    color: var(--heading-color); /* Logo color matches heading */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: var(--spacing-md);
+}
+
+.nav-links a {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.9em;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color var(--transition-normal);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease, background-color var(--transition-normal);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: color var(--transition-fast), transform var(--transition-fast);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: var(--spacing-sm);
+    outline: none;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* --- Hero Section (Deekshith K Gowda Inspired) --- */
+.hero-section {
+    background-color: var(--primary-bg);
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-lg) var(--spacing-md);
+    position: relative;
+    transition: background-color var(--transition-normal);
+    overflow: hidden; /* Ensure content is clipped */
+}
+
+/* Subtle dots/grid pattern in hero background */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.2; /* Subtle visibility */
+    z-index: 0;
+    transition: background-image var(--transition-normal), opacity var(--transition-normal);
+}
+
+.hero-content-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    gap: var(--spacing-lg);
+    align-items: center;
+    justify-content: center;
+    z-index: 1; /* Content above background */
+}
+
+.hero-image-col {
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-sm);
+    background-color: var(--secondary-bg);
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: background-color var(--transition-normal);
+}
+
+.hero-image-col img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* Circular image */
+    object-fit: cover;
+    aspect-ratio: 1 / 1; /* Ensure square for circular image */
+    border: 5px solid var(--accent-color); /* Prominent border */
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.hero-text-col {
+    flex: 2;
+    min-width: 300px;
+    text-align: left;
+    padding-left: var(--spacing-sm);
+}
+
+.hero-text-col .greeting {
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.hero-text-col h1 {
+    font-family: var(--font-main);
+    font-size: clamp(3em, 8vw, 4.5em);
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.1;
+    color: var(--heading-color);
+    text-transform: uppercase;
+}
+
+.hero-text-col h1 span {
+    color: var(--accent-color);
+}
+
+.hero-text-col .professional-title {
+    font-family: var(--font-main);
+    font-size: clamp(1.2em, 2.5vw, 1.6em);
+    font-weight: 500;
+    margin-bottom: 25px;
+    color: var(--text-color);
+}
+
+.hero-social-links {
+    display: flex;
+    gap: var(--spacing-sm); /* Adjusted gap for hero social links */
+    margin-top: var(--spacing-md); /* Ensure space from title/description */
+    margin-bottom: var(--spacing-md); /* Add margin below social icons */
+}
+
+.hero-social-links a {
+    font-size: 1.5em;
+    color: var(--text-color);
+    transition: transform var(--transition-fast), color var(--transition-normal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px; /* Increased size for better spacing */
+    height: 48px; /* Maintain aspect ratio */
+    background-color: var(--heading-color); /* Example background color, can be changed */
+    border-radius: var(--border-radius-card); /* Rounded corners for the squares */
+    box-shadow: 0 1px 3px var(--shadow-color);
+    padding: 8px; /* Internal padding for icon */
+}
+
+.hero-social-links a i {
+    color: var(--primary-bg); /* Icon color (e.g., white/light in dark theme) */
+}
+
+.hero-social-links a:hover {
+    background-color: var(--accent-color); /* Background changes on hover */
+    color: #fff; /* Icon color changes to white on hover */
+    transform: translateY(-3px) scale(1.05);
+}
+.hero-social-links a:hover i { /* Ensure icon inside 'a' also changes color */
+    color: #fff;
+}
+
+
+/* --- About Section (Deekshith K Gowda Inspired) --- */
+.about-section {
+    background-color: var(--secondary-bg);
+    transition: background-color var(--transition-normal);
+}
+
+.about-grid-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: var(--spacing-lg);
+    align-items: flex-start; /* Align to top */
+}
+
+.about-image-col {
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-sm);
+    background-color: var(--primary-bg); /* Background matching primary */
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: background-color var(--transition-normal);
+}
+
+.about-image-col img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-card); /* Keep rounded rect for about image */
+    object-fit: cover;
+}
+
+.about-text-col {
+    flex: 2;
+    min-width: 300px;
+}
+
+.about-text-col p {
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.95em;
+    color: var(--text-color);
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.about-details-blocks-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.about-detail-block {
+    background-color: var(--primary-bg);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 2px 8px var(--shadow-color);
+    transition: background-color var(--transition-normal);
+}
+
+.about-detail-block h4 {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--heading-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.about-detail-block ul li {
+    font-size: 0.9em;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+.about-detail-block ul li:last-child {
+    margin-bottom: 0;
+}
+
+.about-text-col .btn { /* Target Download CV button */
+    margin-top: var(--spacing-md); /* Add margin top to separate from about details */
+}
+
+
+/* --- Experience & Education Section (Tabs Inspired) --- */
+.experience-education-section {
+    background-color: var(--primary-bg);
+    transition: background-color var(--transition-normal);
+}
+
+.experience-education-tabs-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: var(--secondary-bg);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: background-color var(--transition-normal);
+}
+
+.tabs-nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: color var(--transition-fast), border-bottom var(--transition-fast);
+    border-bottom: 2px solid transparent; /* Invisible border for active effect */
+    outline: none; /* Remove focus outline */
+}
+
+.tab-btn.active {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+.tab-btn:hover:not(.active) {
+    color: var(--accent-color);
+}
+
+.tab-pane {
+    display: none;
+    padding-top: var(--spacing-sm);
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+/* Individual Experience/Education Item Styling */
+.exp-edu-item {
+    background-color: var(--primary-bg); /* Background matching primary for sub-blocks */
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-card);
+    margin-bottom: var(--spacing-sm);
+    box-shadow: 0 1px 5px var(--shadow-color);
+    transition: background-color var(--transition-normal);
+}
+.exp-edu-item:last-child {
+    margin-bottom: 0;
+}
+
+.exp-edu-item h3 {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-bottom: 5px;
+}
+
+.exp-edu-item p {
+    font-size: 0.9em;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.exp-edu-item .duration {
+    font-size: 0.8em;
+    color: var(--text-muted);
+    font-style: italic;
+}
+.exp-edu-item ul { /* For description points */
+    list-style: disc;
+    padding-left: 20px;
+    margin-top: 5px;
+    font-size: 0.85em;
+    color: var(--text-color);
+}
+.exp-edu-item ul li {
+    margin-bottom: 3px;
+}
+.exp-edu-item ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Skills Section (Progress Bars Inspired) --- */
+.skills-section {
+    background-color: var(--secondary-bg);
+    transition: background-color var(--transition-normal);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Larger min-width for skill bars */
+    gap: var(--spacing-sm);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.skill-item {
+    background-color: var(--primary-bg);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 2px 8px var(--shadow-color);
+    transition: background-color var(--transition-normal);
+}
+
+.skill-item h4 {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.skill-item h4 span {
+    font-size: 0.9em;
+    color: var(--accent-color);
+}
+
+.skill-bar {
+    width: 100%;
+    background-color: var(--progress-bar-bg);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background-color: var(--progress-color-fill);
+    width: 0%; /* Initial width for animation */
+    border-radius: 4px;
+    transition: width 1s ease-out, background-color var(--transition-normal);
+}
+
+/* --- Projects Section (Deekshith K Gowda Inspired) --- */
+.projects-section {
+    background-color: var(--primary-bg);
+    transition: background-color var(--transition-normal);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: var(--secondary-bg);
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 5px 15px var(--shadow-color);
+    overflow: hidden;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-fast);
+}
+
+.project-card:hover img {
+    transform: scale(1.03);
+}
+
+.project-content {
+    padding: var(--spacing-sm);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-content h3 {
+    font-family: var(--font-main);
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--heading-color);
+    transition: color var(--transition-normal);
+}
+
+.project-content p {
+    font-size: 0.9em;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-sm);
+    flex-grow: 1;
+    line-height: 1.5;
+}
+
+.project-content .btn {
+    font-size: 0.85em;
+    padding: 8px 18px;
+    align-self: flex-start;
+    border-radius: var(--border-radius-pill);
+    background-color: var(--accent-color);
+    color: #fff;
+    border: 1px solid var(--accent-color);
+}
+.project-content .btn:hover {
+    background-color: var(--accent-dark);
+    border-color: var(--accent-dark);
+    transform: translateY(0); /* Override btn-secondary hover */
+    box-shadow: none;
+}
+
+
+/* --- Contact Section (Deekshith K Gowda Inspired) --- */
+.contact-section {
+    background-color: var(--secondary-bg);
+    transition: background-color var(--transition-normal);
+    text-align: center;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-md);
+    max-width: 900px;
+    margin: 0 auto var(--spacing-md) auto;
+}
+
+.contact-detail-box {
+    background-color: var(--primary-bg);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 2px 8px var(--shadow-color);
+    text-align: center;
+    transition: background-color var(--transition-normal);
+}
+
+.contact-detail-box i {
+    font-size: 2em;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.contact-detail-box p {
+    font-size: 0.9em;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.contact-detail-box .contact-label {
+    font-weight: 600;
+    color: var(--heading-color);
+    text-transform: uppercase;
+}
+
+.contact-detail-box .contact-value {
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+.contact-detail-box.social-box .social-links-contact {
+    margin-top: 15px; /* Increased margin-top from previous element */
+    display: flex;
+    justify-content: center; /* Center social icons within box */
+    gap: var(--spacing-md); /* Increased gap between icons */
+}
+.contact-detail-box.social-box .social-links-contact a {
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px; /* Increased size for better spacing */
+    height: 48px; /* Maintain aspect ratio */
+    background-color: var(--heading-color); /* Darker background for icon square */
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 1px 3px var(--shadow-color);
+    padding: 10px; /* Increased internal padding for icon */
+}
+.contact-detail-box.social-box .social-links-contact a i {
+    color: var(--primary-bg); /* Icon color (e.g., white in dark theme) */
+}
+.contact-detail-box.social-box .social-links-contact a:hover {
+    background-color: var(--accent-color); /* Background changes on hover */
+    color: #fff; /* Icon color changes to white on hover */
+    transform: translateY(-3px) scale(1.05);
+}
+.contact-detail-box.social-box .social-links-contact a:hover i { /* Ensure icon color changes */
+    color: #fff;
+}
+
+
+.resume-cta {
+    margin-top: var(--spacing-lg); /* Increased margin-top for resume CTA button */
+}
+
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    text-align: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.85em;
+    border-top: 1px solid var(--border-color);
+    transition: background-color var(--transition-normal), color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.footer-social-links {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md); /* Increased gap for footer social links */
+}
+
+.footer-social-links a {
+    font-size: 1.2em;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px; /* Slightly larger size for footer icons */
+    height: 40px;
+    background-color: var(--secondary-bg); /* Different background for footer icons */
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 1px 3px var(--shadow-color);
+    padding: 7px; /* Internal padding */
+}
+.footer-social-links a i {
+    color: var(--heading-color); /* Footer icon color */
+}
+.footer-social-links a:hover {
+    background-color: var(--accent-color);
+}
+.footer-social-links a:hover i {
+    color: #fff;
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+    .section-padding { padding: var(--spacing-lg) var(--spacing-sm); }
+    .section-title { font-size: 2em; margin-bottom: var(--spacing-lg); }
+    .subsection-title { font-size: 1.2em; }
+
+    .hero-section {
+        min-height: 80vh;
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+    .hero-content-wrapper {
+        flex-direction: column-reverse; /* Stack image on top */
+        gap: var(--spacing-md);
+    }
+    .hero-text-col {
+        text-align: center;
+        padding-left: 0;
+    }
+    .hero-text-col h1 { font-size: 3em; }
+    .hero-text-col .professional-title { font-size: 1.2em; }
+    .hero-buttons, .hero-social-links {
+        justify-content: center;
+    }
+    .hero-image-col {
+        max-width: 300px;
+        padding: var(--spacing-xs); /* Smaller padding inside image block */
+    }
+
+    .about-grid-wrapper {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    .about-image-col { max-width: 300px; padding: var(--spacing-xs); }
+    .about-text-col { text-align: center; }
+    .about-text-col p { text-align: center; }
+    .about-detail-block { text-align: left; } /* Keep detail blocks left-aligned */
+
+    .experience-education-tabs-wrapper { padding: var(--spacing-sm); }
+    .tabs-nav { flex-wrap: wrap; }
+    .tab-btn { font-size: 1em; padding: 8px 15px; }
+
+    .skills-grid, .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .project-card img { height: 160px; }
+
+    .contact-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+}
+
+@media (max-width: 768px) {
+    .header { padding: 10px 0; }
+    .navbar { padding: 0 var(--spacing-xs); } /* Further reduced padding */
+    .navbar .logo { font-size: 1.4em; } /* Adjusted logo size */
+    .nav-links { display: none; } /* Hide nav links on very small screens, could add hamburger */
+    .theme-toggle-container { margin-left: auto; } /* Push toggle to right if nav hidden */
+
+    .section-padding { padding: var(--spacing-md) var(--spacing-sm); }
+    .section-title { font-size: 2em; margin-bottom: var(--spacing-md); }
+    .subsection-title { font-size: 1.1em; }
+
+    .hero-text-col h1 { font-size: 2.5em; }
+    .hero-text-col .professional-title { font-size: 1.1em; }
+    .hero-image-col { max-width: 250px; }
+
+    .about-image-col { max-width: 250px; }
+
+    .exp-edu-item h3 { font-size: 1em; }
+    .exp-edu-item p, .exp-edu-item ul li { font-size: 0.85em; }
+    .exp-edu-item .duration { font-size: 0.75em; }
+
+    .skills-grid {
+        grid-template-columns: 1fr; /* Stack skills vertically on very small screens */
+    }
+    .skill-item { max-width: 300px; margin: 0 auto; } /* Center single skill item */
+
+    .project-card img { height: 120px; }
+
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-detail-box { padding: var(--spacing-xs); }
+    .contact-detail-box i { font-size: 1.8em; }
+    .contact-detail-box p { font-size: 0.8em; }
+
+    .footer { padding: var(--spacing-sm); font-size: 0.75em; }
+    .footer-social-links { gap: var(--spacing-xs); }
+}
+
+@media (max-width: 480px) {
+    .section-title { font-size: 1.8em; }
+    .hero-text-col h1 { font-size: 2em; }
+    .hero-text-col .professional-title { font-size: 0.9em; }
+    .hero-image-col { max-width: 200px; }
+
+    .about-image-col { max-width: 200px; }
+
+    .project-card { max-width: 280px; margin: 0 auto; } /* Center project cards */
+    .project-card img { height: 100px; }
+}
